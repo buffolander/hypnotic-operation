@@ -1,0 +1,277 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Address": {
+				"properties": {
+					"address": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"address",
+					"city",
+					"state",
+					"country"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Investor": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"address": {
+						"$ref": "#/components/schemas/Address"
+					}
+				},
+				"required": [
+					"id",
+					"name",
+					"address"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ListMeta": {
+				"properties": {
+					"total": {
+						"type": "number",
+						"format": "double"
+					},
+					"returned": {
+						"type": "number",
+						"format": "double"
+					},
+					"page": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"total",
+					"returned",
+					"page"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"InvestorList": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/Investor"
+						},
+						"type": "array"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/ListMeta"
+					}
+				},
+				"required": [
+					"data",
+					"meta"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"InvestorCommitment": {
+				"properties": {
+					"fundId": {
+						"type": "string"
+					},
+					"fundName": {
+						"type": "string"
+					},
+					"fundManagerId": {
+						"type": "string"
+					},
+					"fundManagerName": {
+						"type": "string"
+					},
+					"managerExperience": {
+						"type": "string"
+					},
+					"fundCurrency": {
+						"type": "string"
+					},
+					"fundSizeMn": {
+						"type": "string"
+					},
+					"committedMn": {
+						"type": "string"
+					},
+					"vintage": {
+						"type": "string"
+					},
+					"primarySector": {
+						"type": "string"
+					},
+					"benchmarkLocations": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"fundId",
+					"fundName",
+					"fundManagerId",
+					"fundManagerName",
+					"managerExperience",
+					"fundCurrency",
+					"fundSizeMn",
+					"committedMn",
+					"vintage",
+					"primarySector",
+					"benchmarkLocations"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"InvestorCommitmentList": {
+				"properties": {
+					"data": {
+						"items": {
+							"$ref": "#/components/schemas/InvestorCommitment"
+						},
+						"type": "array"
+					},
+					"meta": {
+						"$ref": "#/components/schemas/ListMeta"
+					}
+				},
+				"required": [
+					"data",
+					"meta"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"InvestorCommitmentType": {
+				"type": "string",
+				"enum": [
+					"PE",
+					"PD",
+					"RE",
+					"INF",
+					"NR",
+					"HF"
+				]
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": ""
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/investors": {
+			"get": {
+				"operationId": "ListInvestors",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/InvestorList"
+								}
+							}
+						}
+					}
+				},
+				"summary": "ListInvestors",
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/investors/{id}": {
+			"get": {
+				"operationId": "GetInvestor",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Investor"
+								}
+							}
+						}
+					}
+				},
+				"summary": "GetInvestor",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/investors/{id}/commitments/{commitmentType}": {
+			"get": {
+				"operationId": "GetInvestorCommitments",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/InvestorCommitmentList"
+								}
+							}
+						}
+					}
+				},
+				"summary": "GetInvestorCommitments",
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commitmentType",
+						"required": true,
+						"schema": {
+							"$ref": "#/components/schemas/InvestorCommitmentType"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:9000/v1"
+		}
+	]
+}
