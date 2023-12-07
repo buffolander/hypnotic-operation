@@ -8,5 +8,7 @@ BFF docs: [apps/bff/README.md](apps/bff/README.md)
 Frontend docs: TODO
 
 // TODO: Add a diagram of the architecture
+
 // TODO: Containerize applications
+
 // TODO: Add docker-compose file to run the project locally
