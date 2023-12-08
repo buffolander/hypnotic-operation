@@ -5,7 +5,16 @@ The project hosts an application that interacts with the Preqin API. It's compos
 It uses yarn workspaces to manage multiple applications in the same repository.
 
 BFF docs: [apps/bff/README.md](apps/bff/README.md) 
-Frontend docs: TODO
+
+Frontend docs: [apps/frontend/README.md](apps/frontend/README.md)
+
+## Setup & Run
+
+```bash
+yarn install
+yarn build:all
+yarn start:all
+```
 
 // TODO: Add a diagram of the architecture
 

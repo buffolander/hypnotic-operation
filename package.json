@@ -13,6 +13,10 @@
   "engines": {
     "node": "^18"
   },
+  "scripts": {
+    "build:all": "yarn workspaces foreach -tA run build",
+    "start:all": "yarn workspaces foreach -pivA run start"
+  },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@types/eslint": "^8.44.3",
