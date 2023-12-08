@@ -29,7 +29,7 @@ export interface InvestorList {
 }
 
 export interface InvestorCommitment {
-  fundId: string
+  id: string
   fundName: string
   fundManagerId: string
   fundManagerName: string
@@ -76,7 +76,7 @@ export const mapCommitmentDtoToEntity = ({
   primarySector,
   benchmarkLocations,
 }: CommitmentDto): InvestorCommitment => ({
-  fundId,
+  id: fundId,
   fundName,
   fundManagerId,
   fundManagerName,

@@ -94,7 +94,7 @@
 			},
 			"InvestorCommitment": {
 				"properties": {
-					"fundId": {
+					"id": {
 						"type": "string"
 					},
 					"fundName": {
@@ -129,7 +129,7 @@
 					}
 				},
 				"required": [
-					"fundId",
+					"id",
 					"fundName",
 					"fundManagerId",
 					"fundManagerName",

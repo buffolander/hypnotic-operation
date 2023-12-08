@@ -52,7 +52,7 @@ const models: TsoaRoute.Models = {
     "InvestorCommitment": {
         "dataType": "refObject",
         "properties": {
-            "fundId": {"dataType":"string","required":true},
+            "id": {"dataType":"string","required":true},
             "fundName": {"dataType":"string","required":true},
             "fundManagerId": {"dataType":"string","required":true},
             "fundManagerName": {"dataType":"string","required":true},
