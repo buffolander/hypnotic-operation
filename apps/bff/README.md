@@ -42,7 +42,7 @@ Build options can be modified in `scripts/build-esbuild.ts`.
 yarn build
 ```
 
-// TODO: COntainerized build not yet implemented
+// TODO: Containerized build not yet implemented
 
 ## Run Application
 
