@@ -11,8 +11,13 @@ Frontend docs: [apps/frontend/README.md](apps/frontend/README.md)
 ## Setup & Run
 
 ```bash
+# install dependencies
 yarn install
+
+# build all applications
 yarn build:all
+
+# start frontend and bff
 yarn start:all
 ```
 
