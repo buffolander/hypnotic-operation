@@ -21,6 +21,10 @@ yarn build:all
 yarn start:all
 ```
 
+// TODO: Create base interface and extensions for each AssetClass on BFF
+
+// TODO: Create distinct list components for each AssetClass on Frontend
+
 // TODO: Add a diagram of the architecture
 
 // TODO: Containerize applications
